@@ -119,8 +119,10 @@ export default function MainContent() {
     if (remainingTime < 0) {
       const fromNowToMidnight = moment("23:59:59", "hh:mm:ss").diff(momentNow);
       const fromMidnightToFajr = nextPrayerTimeMoment.diff(
-        moment("23:59:59", "hh:mm:ss")
+        moment("00:00:00", "hh:mm:ss")
       );
+      console.log(moment.duration(fromNowToMidnight));
+      console.log(moment.duration(fromMidnightToFajr));
       const totalDifferance = fromNowToMidnight + fromMidnightToFajr;
       remainingTime = totalDifferance;
     }
